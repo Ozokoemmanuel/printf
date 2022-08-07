@@ -8,7 +8,7 @@
 int _printf(const char *format, ...);
 int isDigit(char);
 int isAlpha(char);
-int setFlags(char *, int *, int, va_list *);
+int setFlags(char *fmt, int *flags, int j, va_list *args);
 int print_string(char *, int *, int);
 char *rot13(char *s);
 int get_index(char *, char);

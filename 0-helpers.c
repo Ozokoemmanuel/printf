@@ -40,7 +40,7 @@ int isDigit(char c)
  * Return: number of chars checked
  */
 
-int setFlags(const char *fmt, int *flags, int j, va_list *args)
+int setFlags(char *fmt, int *flags, int j, va_list *args)
 {
 	int i = j;
 
