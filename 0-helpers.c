@@ -1,6 +1,49 @@
 #include "main.h"
 
 /**
+ * print_str - prints a string
+ * @format: formats in str
+ * @count: current index
+ * @args: argument list
+ * @flag: flags array
+ * Return: number of characters printed
+ */
+
+int print_str(const char *format, int count, va_list args, int *flag)
+{
+	char *s;
+	int retval;
+
+	s = va_arg(args, char *);
+	if (s == NULL)
+		return (print_string("(nil)", flag, count));
+	s = (format[count] == 's') ? s : upper_str(s);
+	retval = print_string(s, flag, count);
+
+		/*free(s);*/
+	return (retval);
+}
+
+/**
+ * print_int - prints a string
+ * @format: formats in str
+ * @count: current index
+ * @args: argument list
+ * @flag: flags array
+ * Return: number of characters printed
+ */
+
+int print_int(const char *format, int count, va_list args, int *flag)
+{
+	long n;
+	char buffer[1024];
+
+	n = va_arg(args, int);
+	signedNumberToString(n, DECIMAL, buffer, format[count], flag);
+	return (print_string(buffer, flag, 1));
+}
+
+/**
  * isAlpha - check if a char is alphabet
  * @c: chracter to check
  * Return: 0 if false 1 for true
@@ -39,7 +82,6 @@ int isDigit(char c)
  * @args: pointer to arguments list
  * Return: number of chars checked
  */
-
 int setFlags(char *fmt, int *flags, int j, va_list *args)
 {
 	int i = j;
