@@ -62,7 +62,7 @@ int _vprintf(const char *format, va_list args)
 			}
 			else
 			{
-				tmp_count = setFlags(format, flag, count, args);
+				tmp_count = setsFlag(format, flag, count, args);
 				count += tmp_count;
 			}
 			print_count += identifier_printed;
