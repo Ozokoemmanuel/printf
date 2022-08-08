@@ -36,7 +36,9 @@ int _vprintf(const char *format, va_list args)
 {
 	/* to keep track of format specifier */
 	int state = 0;
-	int print_count = 0, reset_flag, identifier_printed;
+	int print_count = 0; 
+	int identifier_printed;
+	int format_specifier;
 
 	while (*format)
 	{
@@ -52,7 +54,7 @@ int _vprintf(const char *format, va_list args)
 		}
 		else
 		{
-			identifier_printed = format_specififer(format, args);
+		       identifier_printed = format_specifier(format, args);
 			
 		}
 	}
